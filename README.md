@@ -1,2 +1,2 @@
 # MergeConflicts
-MergeConflicts
+MergeConflict thisis edited nows
