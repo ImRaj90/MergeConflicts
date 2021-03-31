@@ -1,2 +1,2 @@
 # MergeConflicts
-MergeConflict thisis testing now
+MergeConflict this is testing 
