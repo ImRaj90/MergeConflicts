@@ -7,4 +7,9 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2    
       - name: run shellscript  
-        run: "./shellscript.sh"
+        run: |
+          ls -ltr
+          chmod +x ./shellscript.sh
+          ls -ltr
+          ./shellscript.sh
+          
