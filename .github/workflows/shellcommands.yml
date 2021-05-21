@@ -6,6 +6,4 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2    
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - name: Running the shellscripting
-      - run: "./shellscript.sh"
+        run: "./shellscript.sh"
