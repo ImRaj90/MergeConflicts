@@ -6,5 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run shell commands
-      - run: "echo hello world"
+      - run: | 
+          mymessage="test"
+          echo '${mymessage}'          
+          echo ${mymessage}
+
 
