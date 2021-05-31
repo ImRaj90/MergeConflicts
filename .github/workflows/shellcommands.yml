@@ -11,7 +11,7 @@ jobs:
           mymessage="test"
           echo '${mymessage}'          
           echo ${mymessage}
-          echo "cat README.md" 
+          mymessage = echo "cat README.md"
           cat README.md
 
 
