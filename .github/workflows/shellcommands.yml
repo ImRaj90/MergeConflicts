@@ -14,5 +14,10 @@ jobs:
           mymessage=$(<README.md)
           echo ${mymessage}
           cat README.md
-
+          value=`cat README.md`
+          sed 's/^\|$/"/g'|paste -sd, -
+          echo '${value}'          
+          echo ${value}
+          parm=$(awk 'NR>2 {printf "%s",  sep b; sep = ","}
+            {b = a; a = $0}' < README.md)
 
