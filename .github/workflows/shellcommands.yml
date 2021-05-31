@@ -11,7 +11,8 @@ jobs:
           mymessage="test"
           echo '${mymessage}'          
           echo ${mymessage}
-          mymessage = echo "cat README.md"
+          mymessage=$(<README.md)
+          echo ${mymessage}
           cat README.md
 
 
