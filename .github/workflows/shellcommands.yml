@@ -10,5 +10,6 @@ jobs:
           mymessage="test"
           echo '${mymessage}'          
           echo ${mymessage}
+          echo "cat README.md"
 
 
