@@ -6,32 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]- name: Download multiple workflow artifacts
-  # You may pin to the exact commit or the version.
-  # uses: marcofaggian/action-download-multiple-artifacts@6985d930e1da462e36b75e334cd707ddcab9bfcd
-  uses: marcofaggian/action-download-multiple-artifacts@v3.0.7
-  with:
-    # GitHub token
-    github_token: # optional, default is ${{github.token}}
-    # Workflow name
-    workflow: 
-    # Repository name with owner (like actions/checkout)
-    repo: # optional, default is ${{github.repository}}
-    # Pull request number
-    pr: # optional
-    # Commit hash
-    commit: # optional
-    # Branch name
-    branch: # optional
-    # Event type
-    event: # optional
-    # Artifact name (download all artifacts in not specified)
-    names: 
-    # Where to unpack the artifact
-    paths: # default is ./
-  pull_request:
     branches: [ main ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
