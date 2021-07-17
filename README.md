@@ -1,2 +1,2 @@
 # MergeConflicts
-MergeConflict this is testing developer 1
+MergeConflict this is testing from developer 
