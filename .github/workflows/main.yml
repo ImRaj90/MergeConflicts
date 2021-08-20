@@ -27,7 +27,7 @@ jobs:
         run: | 
           if [ ${{ secrets.USERNAME }} == 'raj' ]
           then
-             echo Hello, world raj!!!
+             echo Hello, world raj123!!!
           fi   
           
   test:
