@@ -4,12 +4,20 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2    
-      - name: run shellscript  
-        run: |
-          ls -ltr
-          chmod +x ./shellscript.sh
-          ls -ltr
-          ./shellscript.sh
-          
+      - uses: actions/checkout@v2    
+      - name: run shell commands
+        run: | 
+          mymessage="test"
+          echo '${mymessage}'          
+          echo ${mymessage}
+          mymessage=$(<README.md)
+          echo ${mymessage}
+          cat README.md
+          value=`cat README.md`
+          sed 's/^\|$/"/g'|paste -sd, -
+          echo '${value}'          
+          echo ${value}
+          csv_string=$(paste -sd, README.md)
+          echo ${csv_string}
+          parm=$(awk 'NR>2 {printf "%s",  sep b; sep = ","}
+            {b = a; a = $0}' < README.md)
