@@ -19,13 +19,10 @@ jobs:
           wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
           mkdir sfdx-cli
           tar xJf sfdx-linux-x64.tar.xz -C sfdx-cli --strip-components 1
-          export PATH=~/sfdx/bin:$PATH
-          PATH=~/sfdx/bin:$PATH
+          ./sfdx-cli/install
           echo 'y' | sfdx plugins:install sfpowerkit
           echo 'y' | sfdx plugins:install @dxatscale/sfpwowerscripts
       - name: deltapkg
         run: |
          sfdx sfpowerkit:project:diff --revisionfrom {$manual_commit_id} --revisionto revisionto --output OutputFolder
          tree OutputFolder
-          
-          
