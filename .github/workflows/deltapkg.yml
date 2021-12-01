@@ -1,0 +1,31 @@
+name: 'deltapkg'
+
+on:
+  workflow_dispatch:
+    inputs:
+      manual_commit_id:
+        description: enter commit id
+        required: true
+jobs:
+  deltapkg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          
+      - name: Install salesforce
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+          mkdir sfdx-cli
+          tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+          export PATH=~/sfdx/bin:$PATH
+          PATH=~/sfdx/bin:$PATH
+          echo 'y' | sfdx plugins:install sfpowerkit
+          echo 'y' | sfdx plugins:install @dxatscale/sfpwowerscripts
+      - name: deltapkg
+        run: |
+         sfdx sfpowerkit:project:diff --revisionfrom {$manual_commit_id} --revisionto revisionto --output OutputFolder
+         tree OutputFolder
+          
+          
