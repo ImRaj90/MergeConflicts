@@ -1,5 +1,4 @@
-name:'deltapkg'
-
+name: 'deltapkg'
 on:
   workflow_dispatch:
     inputs:
