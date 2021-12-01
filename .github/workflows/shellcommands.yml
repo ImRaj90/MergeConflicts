@@ -1,8 +1,7 @@
-name: first pipeshellpipeline
-on: push
-
-jobs: 
-  firstpipeline:
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2    
@@ -22,4 +21,3 @@ jobs:
           echo ${csv_string}
           parm=$(awk 'NR>2 {printf "%s",  sep b; sep = ","}
             {b = a; a = $0}' < README.md)
-
