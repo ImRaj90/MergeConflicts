@@ -25,6 +25,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.target_branch }}
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -36,5 +38,9 @@ jobs:
           echo Add other actions to build, target_branch  ${{ github.event.inputs.target_branch }}
           echo test, and deploy your project. include_feature_branches ${{ github.event.inputs.include_feature_branches }}
           git branch
-          git checkout origin/${{ github.event.inputs.target_branch }}
+          git pull origin
+          git checkout -b promotion-branch
+          check_conflicts=$( git pull origin ${{ github.event.inputs.include_feature_branches }} )
+          echo $check_conflicts
+        
           
