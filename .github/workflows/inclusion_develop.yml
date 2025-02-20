@@ -40,6 +40,7 @@ jobs:
           git branch
           git pull origin
           git checkout -b promotion-branch
+          git config pull.rebase false
           check_conflicts=$( git pull origin ${{ github.event.inputs.include_feature_branches }} )
           echo $check_conflicts
         
