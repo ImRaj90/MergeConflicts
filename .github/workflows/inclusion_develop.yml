@@ -36,5 +36,5 @@ jobs:
           echo Add other actions to build, target_branch  ${{ github.event.inputs.target_branch }}
           echo test, and deploy your project. include_feature_branches ${{ github.event.inputs.include_feature_branches }}
           git branch
-          git checkout ${{ github.event.inputs.target_branch }}
+          git checkout origin/${{ github.event.inputs.target_branch }}
           
