@@ -52,10 +52,12 @@ jobs:
           git pull origin $featurebranch
           if [ $? -eq 0 ]; then
               echo "Command Executed Successfully"
-              git push -u origin promotion-branch-${{github.run_number}}
+              $featurebranch is the merged into promotion-branch-${{github.run_number}} successfuly
           else
-              echo "Conflicts found"
+              echo "Conflicts found, please check"
           fi
           done
+          git push -u origin promotion-branch-${{github.run_number}}
+
         
           
