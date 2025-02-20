@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+ # This is a basic workflow to help you get started with Actions
 
 name: Inclusion_Develop
 
@@ -52,7 +52,7 @@ jobs:
           git pull origin $featurebranch
           if [ $? -eq 0 ]; then
               echo "Command Executed Successfully"
-              $featurebranch is the merged into promotion-branch-${{github.run_number}} successfuly
+              echo $featurebranch is the merged into promotion-branch-${{github.run_number}} successfuly
           else
               echo "Conflicts found, please check"
           fi
