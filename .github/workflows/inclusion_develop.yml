@@ -39,10 +39,10 @@ jobs:
           echo test, and deploy your project. include_feature_branches ${{ github.event.inputs.include_feature_branches }}
           git branch
           git pull origin
-          git checkout -b promotion-branch
+          git checkout -b promotion-branch-${{github.run_number}}
           git config pull.rebase false
           check_conflicts=$( git pull origin ${{ github.event.inputs.include_feature_branches }} )
           echo $check_conflicts
-          git push -u origin promotion-branch
+          git push -u origin promotion-branch-${{github.run_number}}
         
           
