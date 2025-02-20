@@ -38,20 +38,24 @@ jobs:
           echo Add other actions to build, target_branch  ${{ github.event.inputs.target_branch }}
           echo test, and deploy your project. include_feature_branches ${{ github.event.inputs.include_feature_branches }}
           include_feature_branches=${{ github.event.inputs.include_feature_branches }}
-          IFS=','
-          # Reading the split string into array
-          read -ra arr <<< "$include_feature_branches"
-          # Print each value of the array by using the loop
-          for val in "${arr[@]}";
-          do
-            printf "name = $val\n"
-          done
           git branch
           git pull origin
           git checkout -b promotion-branch-${{github.run_number}}
           git config pull.rebase false
-          check_conflicts=$( git pull origin ${{ github.event.inputs.include_feature_branches }} )
-          echo $check_conflicts
-          git push -u origin promotion-branch-${{github.run_number}}
+          IFS=','
+          # Reading the split string into array
+          read -ra arr <<< "$include_feature_branches"
+          # Print each value of the array by using the loop
+          for featurebranch in "${arr[@]}";
+          do
+          printf "featurebranch = $featurebranch\n"
+          git pull origin $featurebranch
+          if [ $? -eq 0 ]; then
+              echo "Command Executed Successfully"
+              git push -u origin promotion-branch-${{github.run_number}}
+          else
+              echo "Conflicts found"
+          fi
+          done
         
           
