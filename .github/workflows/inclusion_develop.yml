@@ -60,6 +60,7 @@ jobs:
           fi
           done
           git push -u origin promotion-branch-${{github.run_number}}
+          echo "successfully published the branches"
 
         
           
