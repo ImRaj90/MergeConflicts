@@ -33,10 +33,19 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: create promotional branch and merge all features
         run: |
           echo Add other actions to build, target_branch  ${{ github.event.inputs.target_branch }}
           echo test, and deploy your project. include_feature_branches ${{ github.event.inputs.include_feature_branches }}
+          include_feature_branches=${{ github.event.inputs.include_feature_branches }}
+          IFS=','
+          # Reading the split string into array
+          read -ra arr <<< "$include_feature_branches"
+          # Print each value of the array by using the loop
+          for val in "${arr[@]}";
+          do
+            printf "name = $val\n"
+          done
           git branch
           git pull origin
           git checkout -b promotion-branch-${{github.run_number}}
